@@ -1,5 +1,10 @@
-# correr proyecto =>  node app.js 
+# proyecto_autentificacion
+##  correr proyecto =>  node app.js 
 
+
+## Conceptos
+-Utiliza BD mongo atlas
+-contraseñas hasheadas 
 
 Dependencias y librerias
 
