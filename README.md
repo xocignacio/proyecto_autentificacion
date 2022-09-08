@@ -3,8 +3,9 @@
 
 
 ## Conceptos
--Utiliza BD mongo atlas
--contraseñas hasheadas 
+- Utiliza BD mongo atlas
+- contraseñas hasheadas 
+- persistencia userService from '../../models/Users.js
 
 Dependencias y librerias
 
