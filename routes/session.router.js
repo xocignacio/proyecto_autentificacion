@@ -1,40 +1,37 @@
 import { Router } from "express";
 import userService from "../models/Users.js";
 import { createHash } from "../utils.js";
+import passport from "passport";
 
 const router = Router();
 
-router.post('/register',async (req,res)=>{
-    const {first_name,last_name,email,age,password} =req.body;
-    if(!first_name||!last_name||!email||!password) return res.status(400).send({error:"Incomplete values"})
-    let user = {
-        first_name,
-        last_name,
-        email,
-        age:age,
-        password:createHash(password)
-    }
-    try{
-        const result = await userService.create(user);
-        res.send({status:'success',payload:result})
-    }catch(error){
-        res.status(500).send({error:error})
-    }
+router.post('/register',passport.authenticate('register',{failureRedirect:'/api/sessions/registerFail'}),async (req,res)=>{
+    console.log(req.user);
+    res.send({status:"success", payload:req.user._id})
 })
 
-router.post('/login',async(req,res)=>{
-    console.log(req.body);
-    try{
-        const {email,password} = req.body;
-        if(!email||!password) return res.status(400).send({error:"Incomplete values"})
-        const user = await userService.findOne({$and:[{email:email},{password:password}]},{first_name:1,last_name:1,email:1});
-        if(!user) return res.status(400).send({error:'User not found'});
-        req.session.user = user;
-        res.send({status:"success",payload:user})
-    }catch(error){
-        res.status(500).send({error:error})
-    }
+router.get('/registerFail',async(req,res)=>{
+    console.log("damn, register failed");
+    res.status(500).send({status:"error",error: "damn, register failed"})
+  
 })
+
+router.post('/login',passport.authenticate('login',{failureRedirect:'/api/sessions/loginFail'}),async(req,res)=>{
+    req.session.user ={
+        name:req.user.name,
+        email:req.user.email,
+        id:req.user._id
+    }
+    res.send({status:"success",payload:req.user._id})
+    
+})
+
+router.get('/loginFail',async(req,res)=>{
+    console.log("damn, login failed");
+    res.send({status:"error",error:"damn, login failed"})
+  
+})
+
 
 router.get('/logout',async(req,res)=>{
     req.session.destroy(err=>{
