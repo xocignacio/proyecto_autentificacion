@@ -8,7 +8,7 @@ import MongoStore from 'connect-mongo';
 import session from 'express-session';
 
 const app = express();
-const server = app.listen(8080,()=>console.log("Server funcionando en el puerto 8080"));
+const server = app.listen(8080,()=>console.log("Server funcionando en el puerto 8080 ✔"));
 const connection = mongoose.connect('mongodb+srv://xocignaciodb:mongoatlasdb@cluster0.qe9tcs1.mongodb.net/?retryWrites=true&w=majority');
 
 /////////// Lineas para utilizar handlebars ////////////////////
@@ -23,7 +23,7 @@ app.use(session({                      //// middleware de session que se guarde 
     store:MongoStore.create({
         mongoUrl:'mongodb+srv://xocignaciodb:mongoatlasdb@cluster0.qe9tcs1.mongodb.net/?retryWrites=true&w=majority',
         mongoOptions:{useNewUrlParser:true,useUnifiedTopology:true},
-        ttl:100
+        ttl:10
     }),
     secret:"UnaPalabraSuperDificil",
     resave:false,

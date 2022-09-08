@@ -1,5 +1,6 @@
 import { Router } from "express";
 import userService from "../models/Users.js";
+import { createHash } from "../utils.js";
 
 const router = Router();
 
@@ -11,7 +12,7 @@ router.post('/register',async (req,res)=>{
         last_name,
         email,
         age:age,
-        password
+        password:createHash(password)
     }
     try{
         const result = await userService.create(user);
