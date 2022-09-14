@@ -1,5 +1,5 @@
-# proyecto_autentificacion
-##  correr proyecto =>  node app.js 
+# proyecto_autentificacion + process
+##  correr proyecto =>  nodemon app.js 
 
 
 ## Conceptos
