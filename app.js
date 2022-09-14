@@ -6,10 +6,21 @@ import viewsRouter from './routes/views.router.js';                //// rutas de
 import sessionsRouter from './routes/session.router.js';           //// rutas de register con datos que saco de models users
 import MongoStore from 'connect-mongo';
 import session from 'express-session';
+import passport from 'passport';
+import initializePassport from './src/config/passport.config.js';
+import minimist from 'minimist';
+import { MongoDBService } from './src/MongoDBService/index.js';
+import { config } from './src/config/index.js';
 
 const app = express();
-const server = app.listen(8080,()=>console.log("Server funcionando en el puerto 8080 ✔"));
-const connection = mongoose.connect('mongodb+srv://xocignaciodb:mongoatlasdb@cluster0.qe9tcs1.mongodb.net/?retryWrites=true&w=majority');
+
+const server = app.listen(config.server.PORT, () => {
+    console.log(`- Server running on port  => ${server.address().port} ✔ `);
+  });
+  server.on("error", (error) => {
+    console.error(`Server error: ${error}`);
+  });
+  
 
 /////////// Lineas para utilizar handlebars ////////////////////
 app.engine('handlebars',handlebars.engine());    
@@ -30,6 +41,24 @@ app.use(session({                      //// middleware de session que se guarde 
     saveUninitialized:false
 }))
 
+MongoDBService.init();
+
+initializePassport();
+app.use(passport.initialize());
+app.use(passport.session());
+
 ///// IMPORTANTISIMO consultas que ven los clientes ////////
 app.use('/',viewsRouter);                       ///// En la ruta raiz, el cliente es el que ve las vistas de las rutas
 app.use('/api/sessions',sessionsRouter)         ////
+
+
+const args = minimist(process.argv.slice(2),{alias:{m:"MODE",p:"PORT",d:"DEBUG"},default:{m:"prod",p:8080,d:false}});
+const {MODE,PORT,DEBUG} = args;
+let ObjetoProcess = {
+    mode : MODE,
+    port : PORT,
+    debug: DEBUG,
+    others: args._
+}
+
+console.log(ObjetoProcess );
