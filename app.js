@@ -31,7 +31,7 @@ app.use(express.static(__dirname+'/public'))
 
 app.use(session({                      //// middleware de session que se guarde en mongo
     store:MongoStore.create({
-        mongoUrl:'mongodb+srv://xocignaciodb:mongoatlasdb@cluster0.qe9tcs1.mongodb.net/?retryWrites=true&w=majority',
+        mongoUrl:process.env.MONGO_URL,
         mongoOptions:{useNewUrlParser:true,useUnifiedTopology:true},
         ttl:10
     }),
