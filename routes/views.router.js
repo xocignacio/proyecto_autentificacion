@@ -16,4 +16,10 @@ router.get('/login',(req,res)=>{
     if(req.session.user) return res.redirect('/');
     res.render('login');
 })
+
+
+router.get('/info',(req,res)=>{
+    
+})
+
 export default router;

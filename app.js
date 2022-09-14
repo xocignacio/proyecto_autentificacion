@@ -21,8 +21,7 @@ const server = app.listen(config.server.PORT, () => {
     console.error(`Server error: ${error}`);
   });
   
-
-/////////// Lineas para utilizar handlebars ////////////////////
+/////////// Lineas para utilizar handlebars ///////////////////
 app.engine('handlebars',handlebars.engine());    
 app.set('views',__dirname+'/views');                 ////dirname es la ruta absoluta (utils)
 app.set('view engine','handlebars');
@@ -60,5 +59,4 @@ let ObjetoProcess = {
     debug: DEBUG,
     others: args._
 }
-
 console.log(ObjetoProcess );
