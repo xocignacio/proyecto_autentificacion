@@ -2,6 +2,7 @@ import { Router } from "express";
 import userService from "../models/Users.js";
 import { createHash } from "../utils.js";
 import passport from "passport";
+import {isValidPassword} from '../utils.js'
 
 const router = Router();
 
@@ -32,12 +33,27 @@ router.get('/loginFail',async(req,res)=>{
   
 })
 
-
 router.get('/logout',async(req,res)=>{
     req.session.destroy(err=>{
         if(err) return res.status(500).send("error");
         res.send("ok :)")
     })
 })
+
+
+const objetoInfo = {
+  
+    titulo : process.cwd(),
+    titulo : (process.pid), 
+    titulo : (process.title),
+    titulo :(process.version),
+    titulo : (process.execPath),
+    titulo : (process.platform),
+    titulo : (process.memoryUsage())
+    }
+    
+    router.get('/info', (req,res)=> {
+      res.send (console.log(objetoInfo));
+    })
 
 export default router;

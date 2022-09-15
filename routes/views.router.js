@@ -19,7 +19,7 @@ router.get('/login',(req,res)=>{
 
 
 router.get('/info',(req,res)=>{
-    
+    res.render('info')
 })
 
 export default router;
