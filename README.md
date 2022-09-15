@@ -17,7 +17,7 @@
 Dependencias y librerias
 
 ```sh
- "bcrypt": "^5.0.1",
+    "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.2",
