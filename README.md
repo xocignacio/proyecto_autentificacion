@@ -10,9 +10,9 @@
 - Variables de entorno manejadas con dotenv 
 
 ## rutas
--http://localhost:8080/register
--http://localhost:8080/login
--http://localhost:8080/info
+- http://localhost:8080/register
+- http://localhost:8080/login
+- http://localhost:8080/info
 
 Dependencias y librerias
 
