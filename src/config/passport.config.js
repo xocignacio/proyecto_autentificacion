@@ -29,20 +29,13 @@ const initializePassport = () => {
         let user = await userService.findOne({email:email});
         if(!user) return done(null,false);
       if (!isValidPassword(user,password)) return done(null,false);
-      return done(null,user)
-       
+      return done(null,user)       
         
     }catch(error){
         console.log(error);
        return done(error);
     }
   }))
-
-
-
-
-
-
 
     passport.serializeUser((user,done) =>{
         done(null,user._id)

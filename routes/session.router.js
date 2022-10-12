@@ -40,20 +40,4 @@ router.get('/logout',async(req,res)=>{
     })
 })
 
-
-const objetoInfo = {
-  
-    titulo : process.cwd(),
-    titulo : (process.pid), 
-    titulo : (process.title),
-    titulo :(process.version),
-    titulo : (process.execPath),
-    titulo : (process.platform),
-    titulo : (process.memoryUsage())
-    }
-    
-    router.get('/info', (req,res)=> {
-      res.send (console.log(objetoInfo));
-    })
-
 export default router;

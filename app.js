@@ -61,27 +61,3 @@ let ObjetoProcess = {
 }
 console.log(ObjetoProcess );
 
-
-const objetoInfo = {
-  
-titulo : process.cwd(),
-titulo : (process.pid), 
-titulo : (process.title),
-titulo :(process.version),
-titulo : (process.execPath),
-titulo : (process.platform),
-titulo : (process.memoryUsage())
-}
-
-app.get('/info', (req,res)=> {
-  res.send (console.log(objetoInfo));
-})
-/* 
-  
-console.log(process.cwd()),
-console.log(process.pid), 
-console.log(process.title);
-console.log(process.version); 
-console.log(process.execPath);
-console.log(process.platform);
-console.log(process.memoryUsage()); */
