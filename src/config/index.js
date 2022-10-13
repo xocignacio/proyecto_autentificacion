@@ -27,7 +27,7 @@ const config = {
       products: "/api/productos",
       carts: "/api/carrito",
       login: "/api/login",
-      register: "api/register",
+      register: "/api/register",
     },
   },
 };

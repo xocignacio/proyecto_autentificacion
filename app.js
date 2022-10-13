@@ -20,6 +20,9 @@ const server = app.listen(config.server.PORT, () => {
   server.on("error", (error) => {
     console.error(`Server error: ${error}`);
   });
+
+MongoDBService.init();
+  
   
 /////////// Lineas para utilizar handlebars ///////////////////
 app.engine('handlebars',handlebars.engine());    
@@ -30,17 +33,17 @@ app.use(express.json());
 app.use(express.static(__dirname+'/public'))
 
 app.use(session({                      //// middleware de session que se guarde en mongo
-    store:MongoStore.create({
+  secret:"UnaPalabraSuperDificil",  
+  store:MongoStore.create({
         mongoUrl:process.env.MONGO_URL,
         mongoOptions:{useNewUrlParser:true,useUnifiedTopology:true},
-        ttl:10
-    }),
-    secret:"UnaPalabraSuperDificil",
+        ttl:3600
+    }),    
     resave:false,
     saveUninitialized:false
 }))
 
-MongoDBService.init();
+
 
 initializePassport();
 app.use(passport.initialize());
@@ -48,7 +51,7 @@ app.use(passport.session());
 
 ///// IMPORTANTISIMO consultas que ven los clientes ////////
 app.use('/',viewsRouter);                       ///// En la ruta raiz, el cliente es el que ve las vistas de las rutas
-app.use('/api/sessions',sessionsRouter)         ////
+app.use('/api/sessions',sessionsRouter);        
 
 
 const args = minimist(process.argv.slice(2),{alias:{m:"MODE",p:"PORT",d:"DEBUG"},default:{m:"prod",p:8080,d:false}});
