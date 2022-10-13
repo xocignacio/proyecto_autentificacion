@@ -1,8 +1,8 @@
+import { Router } from 'express';
 import passport from "passport";
 import local from 'passport-local';
 import usersService from '../../models/Users.js';
 import { createHash, isValidPassword } from "../../utils.js";
-
 
 const LocalStrategy = local.Strategy; //local = username + password
 
