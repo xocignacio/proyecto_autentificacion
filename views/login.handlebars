@@ -1,4 +1,25 @@
-<main class="container-fluid">
+<div>
+    <h1>Logueate!</h1>
+    <form id="loginForm">
+        <label>Email</label>
+        <input name="email">
+        <label>Password</label>
+        <input type="password" name="password">
+        <input type="submit"  class="btn btn-dark">
+         <hr>
+         <a  href="http://localhost:8080" class="btn btn-primary">Home</a>
+         <a  href="http://localhost:8080/register" class="btn btn-dark">volver a register</a>
+    </form>
+</div>
+<hr>
+<div>
+    <h2>proximamente</h2>
+    <p>También puedes loguearte por:</p>
+    <a href="/api/sessions/github"><button>Github</button></a>
+</div>
+<script src="/js/login.js"></script>
+
+{{!-- <main class="container-fluid">
       <div class="row">
         <div class="col-md-4 col-sm-12">
 
@@ -33,3 +54,4 @@
   </div>
                    
 </main>
+ --}}
