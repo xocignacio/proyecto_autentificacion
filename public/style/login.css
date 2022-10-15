@@ -1,0 +1,13 @@
+#fondoLogin { background: linear-gradient(to left,#4568DC,#B06AB3);}
+
+.card{
+    margin-top: 5rem;
+    align-items: center;
+    opacity: 0.8;
+    border-radius: 20px;
+}
+
+.card:hover {
+    box-shadow: 5px 10px 20px 10px rgba(250, 247, 247, 0.27);
+    transition: all 0.3s linear;
+  }

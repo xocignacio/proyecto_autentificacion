@@ -1,6 +1,63 @@
-<div>
-    <h1>Logueate!</h1>
-    <form id="loginForm">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style/login.css">
+   
+</head>
+<body id="fondoLogin"> 
+
+
+<div class="row justify-content-md-center">    
+
+
+ <div class="card" style="width: 18rem;">
+  <img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" class="card-img-top" alt="...">
+  <div class="card-body container text-center">
+    <h2 class="card-title">Login</h2>
+   <form id="loginForm">
+        <label>Email</label>
+        <input name="email">
+        <label>Password</label>
+        <input type="password" name="password">
+        <br></br>
+        <input type="submit"  class="btn btn-dark"> inicio 
+         <hr>
+         <a  href="http://localhost:8080" class="btn btn-primary">Home</a>
+         <a  href="http://localhost:8080/register" class="btn btn-dark">Crear una cuenta nueva</a>
+    </form>
+  
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="/js/login.js"></script>
+</body>
+</html>
+
+
+
+
+
+{{!-- 
+ <div class="card" style="width: 18rem;">
+  <img src="https://img.freepik.com/vector-gratis/ilustracion-paisaje-japon_1284-32852.jpg?w=2000" class="card-img-top" alt="...">
+  <div class="card-body container text-center">
+    <h2 class="card-title">Login</h2>
+   <form id="loginForm">
         <label>Email</label>
         <input name="email">
         <label>Password</label>
@@ -10,48 +67,7 @@
          <a  href="http://localhost:8080" class="btn btn-primary">Home</a>
          <a  href="http://localhost:8080/register" class="btn btn-dark">volver a register</a>
     </form>
-</div>
-<hr>
-<div>
-    <h2>proximamente</h2>
-    <p>También puedes loguearte por:</p>
-    <a href="/api/sessions/github"><button>Github</button></a>
-</div>
-<script src="/js/login.js"></script>
-
-{{!-- <main class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 col-sm-12">
-
-<div class="card container text-center"  style="width: 18rem;" >
-  <img src="https://www.oyeme.pe/static/imagenes/login.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title" style="color:  #6190E8" >LOGIN</h5>
   
-<div >
-    <form id="loginForm">
-        <div>
-            <label>Email</label>
-            <input name="email"  placeholder="email@example.com">
-        </div>
-        <div>
-            <label>Contraseña</label>
-            <input  type="password" name="password" placeholder="Password">
-        </div>
-        <hr>
-        <input type="submit" class="btn btn-primary mb-3" >
-        <hr>
-         <a  href="http://localhost:8080" class="btn btn-primary">Home</a>
-           <a  href="http://localhost:8080/register" class="btn btn-primary">Ir a register</a>
-    </div>  
-     </div>
-    </form>
-
-</div>
-  
-<script src="js/login.js"></script>
- </div>
   </div>
-                   
-</main>
+</div>
  --}}
